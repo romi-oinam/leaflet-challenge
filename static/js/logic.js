@@ -74,7 +74,7 @@ legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend"),
     depth = [-10, 10, 30, 50, 70, 90];
 
-    for (let i = 0; i , depth.length; i++) {
+    for (let i = 0; i < depth.length; i++) {
         div.innerHTML +=
         '<i style="nackground:' + mapColor(depth[i] + 1) + '"></i> ' + depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
 
