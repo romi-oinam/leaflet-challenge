@@ -71,7 +71,6 @@ d3.json(url).then(function(data) {
 // Add the legend with colors to corrolate with depth
 var legend = L.control({position: "bottomright"});
 
-
 legend.onAdd = function () {
     let div = L.DomUtil.create("div", "info legend");
 
@@ -93,6 +92,7 @@ legend.onAdd = function () {
         + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
     }
     return div;
+
   };
   legend.addTo(myMap)
   });
