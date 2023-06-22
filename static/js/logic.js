@@ -70,16 +70,29 @@ d3.json(url).then(function(data) {
 
 // Add the legend with colors to corrolate with depth
 var legend = L.control({position: "bottomright"});
-legend.onAdd = function() {
-    var div = L.DomUtil.create("div", "info legend"),
-    depth = [-10, 10, 30, 50, 70, 90];
 
-    for (let i = 0; i < depth.length; i++) {
-        div.innerHTML +=
-        '<i style="nackground:' + mapColor(depth[i] + 1) + '"></i> ' + depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
+legend.onAdd = function () {
+    let div = L.DomUtil.create("div", "info legend");
 
+    let grades = [-10, 10, 30, 50, 70, 90];
+    let colors = [
+      "#98ee00",
+      "#d4ee00",
+      "#eecc00",
+      "#ee9c00",
+      "#ea822c",
+      "#ea2c2c"];
+
+    // Loop through our intervals and generate a label with a colored square for each interval.
+    for (let i = 0; i < grades.length; i++) {
+      div.innerHTML += "<i style='background: "
+        + colors[i]
+        + "'></i> "
+        + grades[i]
+        + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
     }
     return div;
-};
-legend.addTo(myMap)
-});
+
+  };
+  legend.addTo(myMap)
+  });
