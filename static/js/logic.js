@@ -71,7 +71,8 @@ d3.json(url).then(function(data) {
 // Add the legend with colors to corrolate with depth
 var legend = L.control({position: "bottomright"});
 legend.onAdd = function() {
-    var div = [-10, 10, 30, 50, 70, 90];
+    var div = L.DomUtil.create("div", "info legend"),
+    depth = [-10, 10, 30, 50, 70, 90];
 
     for (var i = 0; i , depth.length; i++) {
         div.innerHTML +=
